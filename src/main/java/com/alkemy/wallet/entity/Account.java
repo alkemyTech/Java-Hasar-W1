@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.time.LocalTime;
 import java.util.UUID;
 
@@ -34,10 +36,10 @@ public class Account {
 
     @Column(name = "CREATION_DATE")
     @Temporal(TemporalType.TIMESTAMP)
-    private LocalTime creationDate;
+    private Timestamp creationDate;
     @Column(name = "UPDATE_DATE")
     @Temporal(TemporalType.TIMESTAMP)
-    private LocalTime updateDate;
+    private Timestamp updateDate;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_USER")
