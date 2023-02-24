@@ -1,6 +1,8 @@
 package com.alkemy.wallet.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +11,8 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "accounts")
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 public class Account {
@@ -29,8 +33,10 @@ public class Account {
     private double balance;
 
     @Column(name = "CREATION_DATE")
+    @Temporal(TemporalType.TIMESTAMP)
     private LocalTime creationDate;
     @Column(name = "UPDATE_DATE")
+    @Temporal(TemporalType.TIMESTAMP)
     private LocalTime updateDate;
 
     @OneToOne(cascade = CascadeType.ALL)
