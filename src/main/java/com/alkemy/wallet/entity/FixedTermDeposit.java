@@ -11,11 +11,11 @@ import java.util.UUID;
 @Getter
 @Setter
 @Table(name = "fixed_term_deposit", schema = "JAVHASW1")
-public class FixedTermDeposit_Joaquin {
+public class FixedTermDeposit {
 
     @Id
     @Column(name = "ID_FIXED_TERM_DEPOSIT", nullable = false)
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "Account")
     @JoinColumn(name = "accountId", referencedColumnName = "IdAccount")
     private UUID accountId;
@@ -31,7 +31,7 @@ public class FixedTermDeposit_Joaquin {
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp closingDate;
 
-    public FixedTermDeposit_Joaquin(double amount, UUID accountId, double interest, Timestamp creationDate, Timestamp closingDate){
+    public FixedTermDeposit(double amount, UUID accountId, double interest, Timestamp creationDate, Timestamp closingDate){
         this.accountId = accountId;
         this.amount = amount;
         this.interest = interest;
