@@ -18,9 +18,14 @@ public class Role {
     private UUID roleId;
     @Column(name="NAME", nullable = false, length = 80 )
     @Enumerated(value = EnumType.STRING)
-    private Role name;
+    private String name;
+    private enum name{
+        ADMIN,
+        USER;
+    }
     @Column(name = "DESCRIPTION", nullable = false, length = 100)
     private String description;
+
 
     @Column(name = "CREATION_DATE", updatable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -30,11 +35,8 @@ public class Role {
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp updateDate;
 
-    public enum name{
-        ADMIN,
-        USER;
-    }
-    public Role(UUID roleId, Role name, String description, Timestamp creationDate, Timestamp updateDate){
+
+    public Role(UUID roleId, String name, String description, Timestamp creationDate, Timestamp updateDate){
         this.roleId = roleId;
         this.name = name;
         this.description = description;
