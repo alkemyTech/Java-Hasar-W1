@@ -1,6 +1,8 @@
 package com.alkemy.wallet.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,6 +12,8 @@ import java.util.UUID;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "fixed_term_deposit", schema = "JAVHASW1")
 public class FixedTermDeposit {
 
@@ -17,7 +21,7 @@ public class FixedTermDeposit {
     @Column(name = "ID_FIXED_TERM_DEPOSIT", nullable = false)
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "Account")
-    @JoinColumn(name = "accountId", referencedColumnName = "IdAccount")
+    @JoinColumn(name = "ACCOUNT_ID", referencedColumnName = "ID_ACCOUNT")
     private UUID accountId;
 
     @Column(name = "AMOUNT", nullable = false)
@@ -31,11 +35,4 @@ public class FixedTermDeposit {
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp closingDate;
 
-    public FixedTermDeposit(double amount, UUID accountId, double interest, Timestamp creationDate, Timestamp closingDate){
-        this.accountId = accountId;
-        this.amount = amount;
-        this.interest = interest;
-        this.creationDate = creationDate;
-        this.closingDate = closingDate;
-    }
 }
