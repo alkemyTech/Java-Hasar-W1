@@ -18,8 +18,8 @@ public class Role {
     private UUID roleId;
     @Column(name="NAME", nullable = false, length = 80 )
     @Enumerated(value = EnumType.STRING)
-    private Role name;
-    private enum name{
+    private Roles name;
+    public enum Roles{
         ADMIN,
         USER;
     }
@@ -35,8 +35,7 @@ public class Role {
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp updateDate;
 
-
-    public Role(UUID roleId, Role name, String description, Timestamp creationDate, Timestamp updateDate){
+    public Role(UUID roleId, Roles name, String description, Timestamp creationDate, Timestamp updateDate){
         this.roleId = roleId;
         this.name = name;
         this.description = description;
