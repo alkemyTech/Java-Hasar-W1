@@ -1,9 +1,9 @@
-package com.alkemy.wallet.entity.controller;
+package com.alkemy.wallet.controller;
 
 import com.alkemy.wallet.entity.Account;
 import com.alkemy.wallet.entity.User;
-import com.alkemy.wallet.entity.accountInterface.AccountRepository;
-import com.alkemy.wallet.entity.interfaceUser.UserAccountRepository;
+import com.alkemy.wallet.repository.AccountRepository;
+import com.alkemy.wallet.repository.UserAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,4 +1,4 @@
-package com.alkemy.wallet.entity.interfaceUser;
+package com.alkemy.wallet.repository;
 
 import com.alkemy.wallet.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
