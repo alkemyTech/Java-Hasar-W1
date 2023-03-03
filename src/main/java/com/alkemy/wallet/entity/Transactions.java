@@ -25,6 +25,7 @@ public class Transactions {
     private double amount;
 
     @Column(name = "TYPE")
+    @Enumerated(value = EnumType.STRING)
     private Type type;
     private enum Type{
         INCOME,
