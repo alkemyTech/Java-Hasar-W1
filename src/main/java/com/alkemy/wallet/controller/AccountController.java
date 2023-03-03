@@ -17,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -30,7 +31,7 @@ public class AccountController {
     @GetMapping("/{userId}")
     public List<AccountDto> findById(@PathVariable String userId) {
         try {
-            List<Account> accountList = accountService.findById(userId);
+            Optional<Account> accountList = accountService.findById(userId);
             return accountList.stream().map(account -> convertToDTO(account)).collect(Collectors.toList());
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Ocurrio un error", e);

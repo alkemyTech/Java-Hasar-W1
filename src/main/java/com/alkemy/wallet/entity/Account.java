@@ -23,9 +23,9 @@ import java.util.UUID;
 @Setter
 public class Account {
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "UUID")
     @Column(name = "ID_ACCOUNT")
-    private UUID idAccount;
+    private String id;
 
     @Column(name="CURRENCY", nullable = false, length = 40 )
     @Enumerated(value = EnumType.STRING)
@@ -49,6 +49,7 @@ public class Account {
 
     @Column(name = "SOFT_DELETE")
     private boolean softDelete = Boolean.FALSE;
+
     @JoinColumn(name = "USER_ID")
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private User user;
