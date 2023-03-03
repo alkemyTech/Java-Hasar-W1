@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.UUID;
 
-public interface UserAccountRepository extends JpaRepository<User, UUID> {
-    List<User> findByUserId(UUID userId);
+public interface UserRepository extends JpaRepository<User, Long> {
+    //List<User> findByUserId(String userId);
 }
