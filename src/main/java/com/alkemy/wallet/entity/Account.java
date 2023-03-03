@@ -1,10 +1,12 @@
 package com.alkemy.wallet.entity;
 
+import com.alkemy.wallet.dto.AccountDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.SQLDelete;
+import org.modelmapper.ModelMapper;
 
 import javax.persistence.*;
 import java.sql.Time;
@@ -28,7 +30,7 @@ public class Account {
     @Column(name="CURRENCY", nullable = false, length = 40 )
     @Enumerated(value = EnumType.STRING)
     private Currency currency;
-    private enum Currency{
+    public enum Currency{
         ARS,
         USD;
     }
@@ -46,6 +48,7 @@ public class Account {
     @Temporal(TemporalType.TIMESTAMP)
     private Timestamp updateDate;
 
+    @Column(name = "SOFT_DELETE")
     private boolean softDelete = Boolean.FALSE;
     @JoinColumn(name = "USER_ID")
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
