@@ -21,6 +21,9 @@ public class Transactions {
     
     @Column(name = "ID_TRANSACTION")
     private UUID idTransaction;
+    @JoinColumn(name = "ID_ACCOUNT")
+    @ManyToOne()
+    private Account accountId;
     @Column(name = "AMOUNT")
     private double amount;
 
@@ -34,11 +37,11 @@ public class Transactions {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+   /* @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "Account")
     @JoinColumn(name = "accountId", referencedColumnName = "ID_ACCOUNT")
     @Column(name = "ID_ACCOUNT")
-    private Account accountId;
+    private Account accountId;*/
     @Column(name = "TRANSACTION_DATE")
     private Timestamp transactionDate;
 

@@ -28,11 +28,11 @@ public class Role {
 
 
     @Column(name = "CREATION_DATE", updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
     private Timestamp creationDate;
 
     @Column(name = "UPDATE_DATE", updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
     private Timestamp updateDate;
 
     public Role(UUID roleId, Roles name, String description, Timestamp creationDate, Timestamp updateDate){

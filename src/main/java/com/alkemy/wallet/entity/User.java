@@ -20,9 +20,6 @@ public class User {
 
     @Id
     @Column(name = "ID_USER")
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "Role")
-    @JoinColumn(name = "ID_ROLE_USER", referencedColumnName = "ID_ROLE")
     private UUID idUser;
 
     @Column(name = "FIRST_NAME", nullable = false)
@@ -34,14 +31,14 @@ public class User {
     private String email;
     @Column(name = "PASSWORD", nullable = false)
     private String password;
-    @Column(name = "ID_ROLE")
-    @OneToOne(mappedBy = "ID_ROLE")
-    private UUID roleId;
+    @ManyToOne()
+    @JoinColumn(name = "ID_ROLE")
+    private Role roleId;
     @Column(name = "CREATION_DATE", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
     private Timestamp creationDate;
     @Column(name = "UPDATE_DATE", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
     private Timestamp updateDate;
     @Column(name = "SOFT_DELETE")
     @SQLDelete(sql = "UPDATE User SET softDelete=true WHERE id = ?")

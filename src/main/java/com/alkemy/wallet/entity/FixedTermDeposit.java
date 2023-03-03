@@ -19,20 +19,21 @@ public class FixedTermDeposit {
 
     @Id
     @Column(name = "ID_FIXED_TERM_DEPOSIT", nullable = false)
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "Account")
-    @JoinColumn(name = "ACCOUNT_ID", referencedColumnName = "ID_ACCOUNT")
-    private UUID accountId;
+    private UUID fixedTermDepositId;
+
+    @JoinColumn(name = "ID_ACCOUNT")
+    @ManyToOne()
+    private Account accountId;
 
     @Column(name = "AMOUNT", nullable = false)
     private double amount;
     @Column(name = "INTEREST", nullable = false)
     private double interest;
     @Column(name = "CREATION_DATE", updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
     private Timestamp creationDate;
     @Column(name = "CLOSING_DATE", updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
     private Timestamp closingDate;
 
 }

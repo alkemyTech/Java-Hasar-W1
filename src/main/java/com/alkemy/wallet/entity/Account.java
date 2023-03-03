@@ -42,10 +42,9 @@ public class Account {
     private double balance;
 
     @Column(name = "CREATION_DATE")
-    @Temporal(TemporalType.TIMESTAMP)
     private Timestamp creationDate;
     @Column(name = "UPDATE_DATE")
-    @Temporal(TemporalType.TIMESTAMP)
+   // @Temporal(TemporalType.TIMESTAMP)
     private Timestamp updateDate;
 
     @Column(name = "SOFT_DELETE")
