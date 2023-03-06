@@ -9,15 +9,15 @@ import java.util.List;
 
 @Component
 public class TransactionsMapping {
-//    public Transactions transactionsDto2Entity(TransactionsDto dto) {
-//        Transactions transactionsEntity = new Transactions();
-//        transactionsEntity.setTransactionDate(dto.getTransactionDate());
-//        transactionsEntity.setType(dto.getType());
-//        transactionsEntity.setAmount(dto.getAmount());
-//        transactionsEntity.setAccountId(dto.getAccountId());
-//        transactionsEntity.setDescription(dto.getDescription());
-//        return transactionsEntity;
-//    }
+    public Transactions transactionsDto2Entity(TransactionsDto dto) {
+        Transactions transactionsEntity = new Transactions();
+        transactionsEntity.setTransactionDate(dto.getTransactionDate());
+        transactionsEntity.setType(dto.getType());
+        transactionsEntity.setAmount(dto.getAmount());
+        transactionsEntity.setAccountId(dto.getAccountId());
+        transactionsEntity.setDescription(dto.getDescription());
+        return transactionsEntity;
+    }
 
     public TransactionsDto transactionsEntity2Dto(Transactions entity){
         TransactionsDto dto = new TransactionsDto();
